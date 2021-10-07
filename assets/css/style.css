@@ -498,13 +498,17 @@ li{list-style: none;}
   align-items: center;
 }
 .hold__item ul li {margin: 0px 10px;}
-.item:hover .latestAds__content{margin-bottom: 20px;}
+.item:hover .latestAds__content{margin-bottom: px;}
 .item:hover .hold__item{opacity: 1;}
-.item:hover .latestAds__footer h5{margin-bottom: 10px;}
+.item:hover .latestAds__footer h5{top: 280px; position: absolute;}
+.item:hover .latestAds__footer .product__salary{
+  position: absolute;
+  bottom: -58px; 
+}
 .item:hover .latestAds__footer svg{
   position: absolute;
   z-index: 10;
-  bottom: 180px;
+  bottom: 80px;
 }
 .item:hover .latestAds__content img{
   transform: scale(1.1);
@@ -588,9 +592,12 @@ li{list-style: none;}
   margin-bottom: 20px;
   transition: all .4s ease-in-out;
 }
-.offers__footer svg{margin-bottom: 5px; transition: all .4s ease-in-out}
+.offers__footer svg{
+  margin-bottom: 5px;
+  transition: all .4s ease-in-out
+}
 .offers__content:hover .hold__item{opacity: 1;}
-.offers__content:hover ~ .offers__footer h5{margin-bottom: 10px; margin-top: 40px;}
+.offers__content:hover ~ .offers__footer h5{top: 280px; position: absolute;}
 .offers__content:hover ~ .offers__footer svg{
   position: absolute;
   z-index: 10;
@@ -599,6 +606,10 @@ li{list-style: none;}
 .offers__content:hover img{
   transform: scale(1.1);
   transform: translateY(-20px);
+}
+.offers__content:hover ~ .offers__footer .product__salary{
+  position: absolute;
+  bottom: 50px;
 }
 
 
