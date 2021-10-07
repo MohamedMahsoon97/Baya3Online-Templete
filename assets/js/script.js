@@ -1,3 +1,10 @@
+const loaderOverlay = document.querySelector('.loader__overlay');
+window.onload = () => {
+  setTimeout(() => {
+    loaderOverlay.style.display = 'none';
+  }, 2000);
+}
+
 //  Dropdown  //
 const dropdownToggle = document.querySelector(".dropdown-toggle");
 const dropdownMenu = document.querySelector(".dropdown-menu");
