@@ -21,7 +21,7 @@
             <div class="loader__overlay">
                   <div class="loader"></div>
                   <div class="loader__img">
-                  <img src="../assets/images/logo-wight.png" alt="">
+                        <img src="../assets/images/logo-wight.png" alt="">
                   </div>
             </div>
 
@@ -202,8 +202,8 @@
                                     <ul class="navLinks">
                                           <li><a href="../index.html">الرئيسيه</a></li>
                                           <li><a href="#">نبذه عنا</a></li>
-                                          <li><a href="#">الإقسام</a></li>
-                                          <li><a href="#">المتاجر</a></li>
+                                          <li><a href="../sub-pages/categories.html">الإقسام</a></li>
+                                          <li><a href="../sub-pages/stores.html">المتاجر</a></li>
                                           <li><a href="#">شروط البيع</a></li>
                                           <li><a href="#">سياسة الاسترجاع</a></li>
                                           <li><a href="#">الشحن و التوصيل</a></li>
@@ -849,7 +849,7 @@
                                                             <h2 class="tab-content-heading">الرسايل</h2>
                                                       </div>
                                                       <div class="message-content col-md-11 col-xs-12">
-                                                            <div class="meesage-content-info">
+                                                            <div class="message-content-info">
                                                                   <img src="../assets/images/shamsy-logo.png" alt="">
                                                                   <span>الشامسي للالكترونيات</span>
                                                             </div>
@@ -860,7 +860,7 @@
                                                             </span>
                                                       </div>
                                                       <div class="message-content col-md-11 col-xs-12">
-                                                            <div class="meesage-content-info">
+                                                            <div class="message-content-info">
                                                                   <img src="../assets/images/shamsy-logo.png" alt="">
                                                                   <span>الشامسي للالكترونيات</span>
                                                             </div>
@@ -871,7 +871,7 @@
                                                             </span>
                                                       </div>
                                                       <div class="message-content col-md-11 col-xs-12">
-                                                            <div class="meesage-content-info">
+                                                            <div class="message-content-info">
                                                                   <img src="../assets/images/shamsy-logo.png" alt="">
                                                                   <span>الشامسي للالكترونيات</span>
                                                             </div>
@@ -882,7 +882,7 @@
                                                             </span>
                                                       </div>
                                                       <div class="message-content col-md-11 col-xs-12">
-                                                            <div class="meesage-content-info">
+                                                            <div class="message-content-info">
                                                                   <img src="../assets/images/shamsy-logo.png" alt="">
                                                                   <span>الشامسي للالكترونيات</span>
                                                             </div>
@@ -1050,25 +1050,7 @@
 
             <script src="../assets/js/jquery-3.6.0.min.js"></script>
             <script src="../assets/js/bootstrap.min.js"></script>
-            <script>
-                  // vertical tabs //
-                  function virticalTabs(name){
-                        return document.getElementsByClassName(name);
-                  }
-
-                  let tabPanes = virticalTabs("tab-header")[0].getElementsByTagName("div");
-                  console.log(tabPanes)
-
-                  for(let i = 0; i < tabPanes.length; i++){
-                        tabPanes[i].addEventListener("click" , function() {
-                        virticalTabs("tab-header")[0].getElementsByClassName("active")[0].classList.remove("active");
-                        tabPanes[i].classList.add("active");
-                        virticalTabs("tab-content")[0].getElementsByClassName("active")[0].classList.remove("active");
-                        virticalTabs("tab-content")[0].querySelectorAll(".tab-content-details")[i].classList.add("active");
-                        });
-                  }
-            </script>
+           
             <script src="../assets/js/script.js"></script>
       </body>
-
 </html>
