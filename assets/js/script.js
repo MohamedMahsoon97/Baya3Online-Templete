@@ -30,10 +30,25 @@ registerNewBtn.addEventListener("click", () => {
 	if (myUser.value == "") {
 		alert("UserName Invalid");
 	} else {
-		myUserName.innerHTML = `${myUser.value}`;
-		profileName.innerHTML = `${myUser.value}`;
+	myUserName.innerHTML = `${myUser.value}`;
+	profileName.innerHTML = `${myUser.value}`;
 	}
 });
+
+//*************    open store    *************//
+// let myStoreEdit = document.querySelector(".my-store-edit");
+// let myStore = document.querySelector(".my-store");
+// let storeAdminBtn = document.getElementById("store-admin");
+// let addStoreBtn = document.getElementById("submit-btn-add");
+// addStoreBtn.addEventListener('click' , function() {
+// 	myStoreEdit.style.display = "none";
+// 	myStore.style.display = "flex";
+// });
+// storeAdminBtn.addEventListener('click' , function() {
+// 	myStoreEdit.style.display = "none";
+// 	myStore.style.display = "flex";
+// });
+
 
 //****************   Dropdown 1 ***************//
 const dropdownToggle = document.querySelector(".dropdown-toggle");
