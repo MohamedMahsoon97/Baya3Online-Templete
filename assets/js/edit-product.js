@@ -17,3 +17,13 @@ dataBtnEdit.addEventListener('click' , function() {
 	dataContactContainer.style.display = "none";
 	dataContactEdit.style.display = "flex";
 });
+
+
+let wrapperStore = document.getElementById("contentWrapper");
+let tabsInStore = document.getElementById("tabs-in-store");
+let storeNameImg = document.getElementById("store-name-img");
+
+storeNameImg.addEventListener("click" , function() {
+	wrapperStore.style.display = "flex";
+	tabsInStore.style.display = "none";
+})

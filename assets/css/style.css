@@ -1612,6 +1612,9 @@ footer {
     align-items: center;
     height: 50px;
 }
+.content .tab-content-heading {
+    margin-top: 0px;
+}
 .tab-content-heading h3{
     font-size: var(--h2-font-size);
     display: flex;
@@ -2305,12 +2308,14 @@ footer {
 }
 .tab-button {
     border: none;
-    padding: 15px;
+    padding: 10px;
     background-color: transparent;
     color: #232c3d;
     font-size: 22px;
     cursor: pointer;
     transition: 0.5s;
+    display: flex;
+    align-items: center;
 }
 .tab-button:hover {
 
@@ -2392,6 +2397,7 @@ footer {
 }
 .store-name .store-name-img{
     background-color: #fff;
+    cursor: pointer;
 }
 .store-name .store-name-title{
     display: flex;
@@ -2410,15 +2416,20 @@ footer {
     left: 0px;
     border-bottom: none;
 }
-.wrapper-in-store .buttonWrapper .tab-button svg{
+.wrapper-in-store .buttonWrapper .tab-button > div{
     border: 1px solid #a1a1a1;
-    padding: 10px;
+    /* padding: 5px; */
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
     border-radius: 50%;
+    text-align: center;
 }
 .wrapper-in-store .buttonWrapper .tab-button span{
     font-size: var(--h2-font-size);
+    margin-left: 10px;
 }
-.active-tabBtn svg{
+.active-tabBtn > div{
     background-color: var(--first-color);
     border: none !important;
 }
@@ -2502,9 +2513,16 @@ footer {
     border-radius: 0px !important;
     box-shadow: 0 4px 4px rgb(0 0 0 / 4%);
 }
+#contentWrapper{
+    /* display: none; */
+}
 .tabs-in-store{
-    /* height: 0% !important; */
+    /* display: flex; */
     padding: 0px 0px 0px 40px !important;
+}
+.content .chat-box-content{
+    width: 94% !important;
+    margin: auto;
 }
 .store-tab-navs .my-tab{
     padding: 20px 30px  !important;
@@ -2548,7 +2566,7 @@ footer {
     align-items: center;
     border:  1px solid #D5D5D5;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 10px 10px;
 }
 .categ > div{
     display: flex;
