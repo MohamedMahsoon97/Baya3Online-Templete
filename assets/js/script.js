@@ -6,6 +6,20 @@ window.onload = () => {
 	}, 500);
 };
 
+//*************** Navbar Responsive ***************//
+const bars = document.querySelector('.nav__bars');
+const sideBar = document.querySelector('.side__bar');
+const closeSideBar = document.querySelector('.close__sidebar');
+showSidebar = () => sideBar.classList.add('nav__active');
+hideSidebar = () => sideBar.classList.remove('nav__active');
+
+bars.addEventListener('click', () => {
+	showSidebar();
+})
+closeSideBar.addEventListener('click', () => {
+	hideSidebar();
+});
+
 //*************** Overlay Register  ***************//
 var registerOverlay = document.querySelector(".overlay-register__container");
 var registerOverlayClose = document.querySelector(".close_reg-form");
