@@ -50,18 +50,18 @@ registerNewBtn.addEventListener("click", () => {
 });
 
 //*************    open store    *************//
-// let myStoreEdit = document.querySelector(".my-store-edit");
-// let myStore = document.querySelector(".my-store");
-// let storeAdminBtn = document.getElementById("store-admin");
-// let addStoreBtn = document.getElementById("submit-btn-add");
-// addStoreBtn.addEventListener('click' , function() {
-// 	myStoreEdit.style.display = "none";
-// 	myStore.style.display = "flex";
-// });
-// storeAdminBtn.addEventListener('click' , function() {
-// 	myStoreEdit.style.display = "none";
-// 	myStore.style.display = "flex";
-// });
+let myStoreEdit = document.querySelector(".my-store-edit");
+let myStore = document.querySelector(".my-store");
+let storeAdminBtn = document.getElementById("store-admin");
+let addStoreBtn = document.getElementById("submit-btn-add");
+addStoreBtn.addEventListener('click' , function() {
+	myStoreEdit.style.display = "none";
+	myStore.style.display = "flex";
+});
+storeAdminBtn.addEventListener('click' , function() {
+	myStoreEdit.style.display = "none";
+	myStore.style.display = "flex";
+});
 
 
 //****************   Dropdown 1 ***************//
