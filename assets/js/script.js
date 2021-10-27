@@ -68,13 +68,11 @@ dropdownToggle.addEventListener("click", () => dropdownMenu.classList.toggle("di
 //***************  Dropdown 2  ***************//
 let accountOne = document.getElementById("dropdown-btn-one");
 let accountTwo = document.getElementById("dropdown-btn-two");
-let accountBtnRes = document.getElementById("account-btn");
 let dropdownReg = document.getElementById("dropdown__reg");
 let dropdownRegTwo = document.getElementById("dropdown__reg-2");
 
 accountOne.addEventListener("click", () => dropdownReg.classList.toggle("display"));
 accountTwo.addEventListener("click", () => dropdownRegTwo.classList.toggle("display"));
-accountBtnRes.addEventListener("click", () => dropdownReg.classList.toggle("display"));
 
 //*************** Accordion ***************//
 $(function () {
