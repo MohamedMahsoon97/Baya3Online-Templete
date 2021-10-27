@@ -1007,7 +1007,7 @@ li {
 .item:hover .latestAds__footer svg {
     position: absolute;
     z-index: 10;
-    bottom: 70px;
+    bottom: 80px;
 }
 .item:hover .latestAds__content img {
     transform: scale(1.1);
@@ -2135,8 +2135,7 @@ footer {
     transition: all 0.25s ease;
 }
 .submenu a:hover {
-    background: #b63b4d;
-    color: #fff;
+    color: var(--first-color);
 }
 .choose-color {
     display: flex !important;
@@ -2917,7 +2916,6 @@ footer {
 
     /*--   Slider Categoery   --*/
     .category__content span{
-        padding-top: 90px;
         font-size: var(--h1-font-size);
     }
     .category__footer{
@@ -2932,7 +2930,29 @@ footer {
     .latestAds__content{
         width: 100%;
     }
-    
+    .latestAds__carousel .item{
+        width: 100%;
+        height: 370px;
+    }
+    .item .hold__item {
+        opacity: 1;
+    }
+    .item .latestAds__footer h5 {
+        top: 280px;
+        position: absolute;
+    }
+    .latestAds__footer .product__salary {
+        position: absolute;
+        bottom: -58px;
+    }
+    .item .latestAds__footer svg {
+        position: absolute;
+        z-index: 10;
+        bottom: 70px;
+    }
+    .item .latestAds__content img {
+        transform: scale(1.1);
+    }
     /* -----end----- */
 
     /*--   series   --*/
@@ -2952,17 +2972,28 @@ footer {
     .offers__content{
         width: 100%;
     }
-    .offers__content:hover ~ .offers__footer{
+    .offers__content .hold__item {
+        opacity: 1;
+    }
+    .offers__content ~ .offers__footer h5 {
+        top: 280px;
+        position: absolute;
+    }
+    .offers__content ~ .offers__footer{
         margin-bottom: 158px;
     }
-    .offers__content:hover ~ .offers__footer svg {
+    .offers__content ~ .offers__footer svg {
         position: absolute;
         z-index: 10;
         bottom: 190px;
     }
-    .offers__content:hover ~ .offers__footer .product__salary {
+    .offers__content ~ .offers__footer .product__salary {
         position: absolute;
         bottom: 50px;
+    }
+    .offers__content img {
+        transform: scale(1.1);
+        transform: translateY(-20px);
     }
     /* -----end----- */
 
