@@ -6,6 +6,16 @@ window.onload = () => {
 	}, 500);
 };
 
+/*==================== SHOW SCROLL UP ====================*/
+function scrollTop() {
+	const scrollTop = document.getElementById('scroll-up')
+	if (this.scrollY >= 560) {
+		scrollTop.classList.add('show-scroll');
+	}
+	else scrollTop.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollTop)
+
 //*************** Navbar Responsive ***************//
 const bars = document.querySelector('.nav__bars');
 const sideBar = document.querySelector('.side__bar');
@@ -49,20 +59,6 @@ registerNewBtn.addEventListener("click", () => {
 	}
 });
 
-//*************    open store    *************//
-let myStoreEdit = document.querySelector(".my-store-edit");
-let myStore = document.querySelector(".my-store");
-let storeAdminBtn = document.getElementById("store-admin");
-let addStoreBtn = document.getElementById("submit-btn-add");
-addStoreBtn.addEventListener('click' , function() {
-	myStoreEdit.style.display = "none";
-	myStore.style.display = "flex";
-});
-storeAdminBtn.addEventListener('click' , function() {
-	myStoreEdit.style.display = "none";
-	myStore.style.display = "flex";
-});
-
 
 //****************   Dropdown 1 ***************//
 const dropdownToggle = document.querySelector(".dropdown-toggle");
@@ -72,11 +68,13 @@ dropdownToggle.addEventListener("click", () => dropdownMenu.classList.toggle("di
 //***************  Dropdown 2  ***************//
 let accountOne = document.getElementById("dropdown-btn-one");
 let accountTwo = document.getElementById("dropdown-btn-two");
+let accountBtnRes = document.getElementById("account-btn");
 let dropdownReg = document.getElementById("dropdown__reg");
 let dropdownRegTwo = document.getElementById("dropdown__reg-2");
 
 accountOne.addEventListener("click", () => dropdownReg.classList.toggle("display"));
 accountTwo.addEventListener("click", () => dropdownRegTwo.classList.toggle("display"));
+accountBtnRes.addEventListener("click", () => dropdownReg.classList.toggle("display"));
 
 //*************** Accordion ***************//
 $(function () {
@@ -112,21 +110,21 @@ $(function () {
 });
 
 //*************** Tabs Toggle ***************//
-let allTabs = document.getElementById("wrapper");
-let tabButton = document.querySelectorAll(".tab-button");
-let contents = document.querySelectorAll(".content");
+	// let allTabs = document.getElementById("wrapper");
+	// let tabButton = document.querySelectorAll(".tab-button");
+	// let contents = document.querySelectorAll(".content");
 
-allTabs.onclick = function (e) {
-	const id = e.target.dataset.id;
-	if (id) {
-		tabButton.forEach((btn) => {
-			btn.classList.remove("active-tabBtn");
-		});
-		e.target.classList.add("active-tabBtn");
-		contents.forEach((content) => {
-			content.classList.remove("active-content");
-		});
-		const element = document.getElementById(id);
-		element.classList.add("active-content");
-	}
-};
+	// allTabs.onclick = function (e) {
+	// 	const id = e.target.dataset.id;
+	// 	if (id) {
+	// 		tabButton.forEach((btn) => {
+	// 			btn.classList.remove("active-tabBtn");
+	// 		});
+	// 		e.target.classList.add("active-tabBtn");
+	// 		contents.forEach((content) => {
+	// 			content.classList.remove("active-content");
+	// 		});
+	// 		const element = document.getElementById(id);
+	// 		element.classList.add("active-content");
+	// 	}
+	// };
