@@ -108,21 +108,21 @@ $(function () {
 });
 
 //*************** Tabs Toggle ***************//
-	// let allTabs = document.getElementById("wrapper");
-	// let tabButton = document.querySelectorAll(".tab-button");
-	// let contents = document.querySelectorAll(".content");
+let allTabs = document.getElementById("wrapper");
+let tabButton = document.querySelectorAll(".tab-button");
+let contents = document.querySelectorAll(".content");
 
-	// allTabs.onclick = function (e) {
-	// 	const id = e.target.dataset.id;
-	// 	if (id) {
-	// 		tabButton.forEach((btn) => {
-	// 			btn.classList.remove("active-tabBtn");
-	// 		});
-	// 		e.target.classList.add("active-tabBtn");
-	// 		contents.forEach((content) => {
-	// 			content.classList.remove("active-content");
-	// 		});
-	// 		const element = document.getElementById(id);
-	// 		element.classList.add("active-content");
-	// 	}
-	// };
+allTabs.onclick = function (e) {
+	const id = e.target.dataset.id;
+	if (id) {
+		tabButton.forEach((btn) => {
+			btn.classList.remove("active-tabBtn");
+		});
+		e.target.classList.add("active-tabBtn");
+		contents.forEach((content) => {
+			content.classList.remove("active-content");
+		});
+		const element = document.getElementById(id);
+		element.classList.add("active-content");
+	}
+};
