@@ -40,6 +40,9 @@ const countProductAdded = document.querySelector(".count-product-added");
 const countProductCart = document.querySelector(".count-product-cart");
 const sweetAlert = document.querySelector(".sweet-alert");
 const closeAlert = document.querySelector(".close-alert");
+const alertAdded = document.querySelector(".alert-added");
+
+// Create Alert Added
 
 
 addToCart.forEach( itemCart => {
@@ -59,15 +62,36 @@ addToCart.forEach( itemCart => {
 					<img src="${Products.myImg}">
 					<div class="cart-desc">
 						<h3>${Products.myName}</h3>
-						<span>${Products.myPrice}</span>
+						<div>
+							<span>${Products.myPrice} </span>
+							<button class="remove__product">حذف </button>
+						</div>
 					</div>
 				</div>
 			`
+			alertAdded.style.display = "block";
+			alertAdded.innerHTML = `<span>تم إضافه المنتج</span>`
+			setTimeout(() => {
+				alertAdded.style.display = "none";
+			}, 1000);
 			countProductAdded.innerHTML = cartContainer.children.length;
 			countProductCart.innerHTML = cartContainer.children.length;
+
+			//*************** Remove form cart ***************//
+			const removeProduct = document.querySelectorAll(".remove__product");
+			console.log(removeProduct.length);
+			removeProduct.forEach( itemRemoved => {
+				itemRemoved.addEventListener("click" , (e) => {
+					let productDeleted = e.target.parentElement.parentElement.parentElement;
+					productDeleted.remove();
+					countProductAdded.innerHTML = cartContainer.children.length;
+					countProductCart.innerHTML = cartContainer.children.length;
+				});
+			});
 		};
 	});
 });
+
 
 openCartBtn.addEventListener("click" , () => {
 	if (cartContainer.children.length  > 0) {
