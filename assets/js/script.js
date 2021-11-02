@@ -8,13 +8,13 @@ window.onload = () => {
 
 /*==================== SHOW SCROLL UP ====================*/
 function scrollTop() {
-	const scrollTop = document.getElementById('scroll-up')
+	const scrollTop = document.getElementById('scroll-up');
 	if (this.scrollY >= 560) {
 		scrollTop.classList.add('show-scroll');
 	}
-	else scrollTop.classList.remove('show-scroll')
-}
-window.addEventListener('scroll', scrollTop)
+	else scrollTop.classList.remove('show-scroll');
+};
+window.addEventListener('scroll', scrollTop);
 
 //*************** Navbar Responsive ***************//
 const bars = document.querySelector('.nav__bars');
@@ -29,6 +29,59 @@ bars.addEventListener('click', () => {
 closeSideBar.addEventListener('click', () => {
 	hideSidebar();
 });
+
+// *************** My Cart  ***************//
+const openCartBtn = document.getElementById("open-cart");
+const closeCartBtn = document.getElementById("close_cart");
+const addToCart = document.querySelectorAll(".hold__item svg");
+const cartContent = document.querySelector(".side__bar-cart");
+const cartContainer = document.querySelector(".side__bar-cart-content");
+const countProductAdded = document.querySelector(".count-product-added");
+const countProductCart = document.querySelector(".count-product-cart");
+const sweetAlert = document.querySelector(".sweet-alert");
+const closeAlert = document.querySelector(".close-alert");
+
+
+addToCart.forEach( itemCart => {
+	itemCart.addEventListener("click" , (e) => {
+		if (e.target.id === "basket") {
+			let myImg = e.target.parentElement.parentElement.previousElementSibling.firstElementChild.src;
+			let productName = e.target.parentElement.parentElement.nextElementSibling.firstElementChild;
+			let productPrice = e.target.parentElement.parentElement.nextElementSibling.lastElementChild.firstElementChild;
+			let Products = {
+				id : e.target.id,
+				myImg : myImg,
+				myName : productName.innerHTML,
+				myPrice : productPrice.innerHTML
+			};
+			cartContainer.innerHTML += `
+				<div class="cart-content">
+					<img src="${Products.myImg}">
+					<div class="cart-desc">
+						<h3>${Products.myName}</h3>
+						<span>${Products.myPrice}</span>
+					</div>
+				</div>
+			`
+			countProductAdded.innerHTML = cartContainer.children.length;
+			countProductCart.innerHTML = cartContainer.children.length;
+		};
+	});
+});
+
+openCartBtn.addEventListener("click" , () => {
+	if (cartContainer.children.length  > 0) {
+		cartContent.style.display = "flex";
+	} else {
+		sweetAlert.style.display = "flex";
+		closeAlert.addEventListener("click" , () => {
+			sweetAlert.style.display = "none";
+		});
+	};
+});
+closeCartBtn.addEventListener("click" , () => cartContent.style.display = "none");
+
+
 
 //*************** Overlay Register  ***************//
 var registerOverlay = document.querySelector(".overlay-register__container");
@@ -108,21 +161,21 @@ $(function () {
 });
 
 //*************** Tabs Toggle ***************//
-let allTabs = document.getElementById("wrapper");
-let tabButton = document.querySelectorAll(".tab-button");
-let contents = document.querySelectorAll(".content");
+// let allTabs = document.getElementById("wrapper");
+// let tabButton = document.querySelectorAll(".tab-button");
+// let contents = document.querySelectorAll(".content");
 
-allTabs.onclick = function (e) {
-	const id = e.target.dataset.id;
-	if (id) {
-		tabButton.forEach((btn) => {
-			btn.classList.remove("active-tabBtn");
-		});
-		e.target.classList.add("active-tabBtn");
-		contents.forEach((content) => {
-			content.classList.remove("active-content");
-		});
-		const element = document.getElementById(id);
-		element.classList.add("active-content");
-	}
-};
+// allTabs.onclick = function (e) {
+// 	const id = e.target.dataset.id;
+// 	if (id) {
+// 		tabButton.forEach((btn) => {
+// 			btn.classList.remove("active-tabBtn");
+// 		});
+// 		e.target.classList.add("active-tabBtn");
+// 		contents.forEach((content) => {
+// 			content.classList.remove("active-content");
+// 		});
+// 		const element = document.getElementById(id);
+// 		element.classList.add("active-content");
+// 	}
+// };
