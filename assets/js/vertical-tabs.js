@@ -3,7 +3,6 @@ function virticalTabs(name) {
     return document.getElementsByClassName(name);
 }
 let tabPanes = virticalTabs("tab-header")[0].getElementsByTagName("div");
-console.log(tabPanes);
 
 for (let i = 0; i < tabPanes.length; i++) {
     tabPanes[i].addEventListener("click", function () {

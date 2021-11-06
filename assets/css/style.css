@@ -640,7 +640,7 @@ li {
     transition: all 0.3s ease-in;
 }
 .header__account:hover i {
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
 }
 .dropdown__reg , .dropdown__reg-2{
     background-color: #fff;
@@ -692,13 +692,15 @@ li {
     box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
     position: fixed;
     top: 0px;
+    right:-100%;
     width: 25%;
     height: 100vh;
     background-color: #ffffff;
     z-index: 1000;
-    display: none;
+    display: flex;
     flex-flow: column;
     overflow-y: scroll;
+    transition: all .4s ease-in-out;
 }
 .cart-header{
     direction: rtl;
@@ -782,6 +784,114 @@ li {
     border-radius: 4px;
     font-size: var(--normal-font-size);
     margin-right: 40px;
+}
+.product-notfound{
+    text-align: center;
+    margin-top: 20px;
+    font-size: var(--h2-font-size);
+}
+
+/* side__bar-fav */
+.side__bar-fav{
+    direction: ltr;
+    box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+    position: fixed;
+    top: 0px;
+    width: 25%;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 1000;
+    display: none;
+    flex-flow: column;
+    overflow-y: scroll;
+}
+.fav-header{
+    direction: rtl;
+    padding: 12px 15px;
+    height: 50px;
+    text-align: right;
+    background-color: #fdfdfd;
+    border-bottom: 1px solid #f3f3f3;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 1%);
+}
+.fav-header .fav-header-content {
+    display: flex;
+    align-items: center;
+}
+.fav-header .fav-header-content h5{
+    margin: 0px 5px;
+}
+.count-product-cart{
+    width: 23px;
+    height: 23px;
+    line-height: 23px;
+    background-color: var(--first-color);
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    font-size: var(--h3-font-size);
+}
+.fav-header h5 svg{
+    margin-left: 10px;
+}
+.close_cart{
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    cursor: pointer;
+}
+.side__bar-fav-content{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-flow: column;
+}
+.fav-content{
+    border: 1px solid #d1d1d1;
+    border-radius: 7px;
+    padding: 10px;
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    direction: rtl;
+}
+.fav-content img{
+    width: 90px;
+    height: 90px;
+}
+.fav-desc{
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    text-align: right;
+    margin-right: 10px;
+}
+.fav-desc > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.fav-desc h3{
+    font-size: var(--small-font-size);
+}
+.fav-desc span{
+    font-size: var(--normal-font-size);
+    color: var(--first-color);
+}
+.remove__product{
+    border: none;
+    background-color: #e20535;
+    color: #fff;
+    padding: 1px 8px;
+    border-radius: 4px;
+    font-size: var(--normal-font-size);
+    margin-right: 40px;
+}
+.product-notfound{
+    text-align: center;
+    margin-top: 20px;
+    font-size: var(--h2-font-size);
 }
 
 /* sweet-alert */
@@ -1166,6 +1276,7 @@ li {
 .offers__Daily-container .hold__item{
     position: absolute;
     bottom: 160px;
+    opacity: 1;
 }
 .offers__title {
     position: relative;
@@ -2734,7 +2845,7 @@ footer {
 }
 .store-tab-navs{
     top: 0px !important;
-    height: 420px;
+    height: 420px !important;
     padding: 10px 0px !important;
     border-radius: 0px !important;
     box-shadow: 0 4px 4px rgb(0 0 0 / 4%);
@@ -3088,10 +3199,21 @@ footer {
         border: 2px solid #e9e9e9 ;
         justify-content: space-evenly;
         font-size: var(--h1-font-size);
-        /* position: relative;
-        bottom: 0px; */
     }
     /* -----end----- */
+
+    /* SideBar Cart */
+    .side__bar-cart , .side__bar-fav{
+        width: 100%;
+        height: 100vh;
+    }
+    .alert-content{
+        width: 70%;
+        height: 170px;
+    }
+    .alert-content .alert-message {
+        font-size: var(--h3-font-size);
+    }
 
     /*--   First Slider   --*/
     .slider__container{
@@ -3125,11 +3247,19 @@ footer {
 
     /*--   Latest Carousel   --*/
     .latestAds__content{width: 100%;}
+    .item .latestAds__content img
+    {
+        transform: translateY(-20px) !important;
+    }
     .latestAds__carousel .item{
         width: 100%;
         height: 370px;
     }
-    .item .hold__item {opacity: 1;}
+    .item .hold__item {
+        position: absolute;
+        bottom: 122px;
+        opacity: 1;
+    }
     .item .latestAds__footer h5 {
         top: 280px;
         position: absolute;
@@ -3141,9 +3271,9 @@ footer {
     .item .latestAds__footer svg {
         position: absolute;
         z-index: 10;
-        bottom: 70px;
+        bottom: 150px !important;
     }
-    .item .latestAds__content img {transform: scale(1.1);}
+    .item:hover .latestAds__content img {transform: scale(1);}
     /* -----end----- */
 
     /*--   series   --*/
@@ -3425,7 +3555,48 @@ footer {
         display: inline-flex;
         margin: 0px 8px;
     }
-
+    .wrapper-in-store .buttonWrapper{
+        position: inherit;
+        justify-content: center;
+    }
+    .tab-navs{
+        width: 100% !important;
+    }
+    .tab-button{
+        font-size: var(--small-font-size);
+    }
+    .wrapper-in-store .buttonWrapper .tab-button > div {
+        border: 1px solid #a1a1a1;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        border-radius: 50%;
+        text-align: center;
+    }
+    .wrapper-in-store .buttonWrapper .tab-button > div svg {
+        width: 17px;
+        height: 17px;
+    }
+    .tabs-in-store{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    #tabs-in-store{
+        padding: 0px !important;
+        margin-bottom: 30px;
+    }
+    .tabs-in-store .tab-navs{
+        height: 350px !important;
+    }
+    .wrapper{
+        padding: 0px;
+    }
+    .wrapper-in-store .content {
+        padding: 0px !important;
+    }
+    .wrapper-in-store .content .tab-content-heading {
+        margin-top: 30px;
+    }
     /* Product Description */
     .gallery-thumbs {
         overflow: scroll;
@@ -3456,7 +3627,7 @@ footer {
         margin-top: 10px;
     }
     .tab-button{
-        font-size: 17px;
+        font-size: 15px;
     }
     .content {
         display: none;

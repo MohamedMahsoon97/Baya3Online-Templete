@@ -32,19 +32,21 @@ closeSideBar.addEventListener('click', () => {
 
 // *************** My Cart  ***************//
 const openCartBtn = document.getElementById("open-cart");
+const openFavBtn = document.getElementById("open-fav");
 const closeCartBtn = document.getElementById("close_cart");
 const addToCart = document.querySelectorAll(".hold__item svg");
 const cartContent = document.querySelector(".side__bar-cart");
+const favContent = document.querySelector(".side__bar-fav");
 const cartContainer = document.querySelector(".side__bar-cart-content");
+const favContainer = document.querySelector(".side__bar-fav-content");
 const countProductAdded = document.querySelector(".count-product-added");
+const countProductFav = document.querySelector(".count-product-fav");
 const countProductCart = document.querySelector(".count-product-cart");
 const sweetAlert = document.querySelector(".sweet-alert");
 const closeAlert = document.querySelector(".close-alert");
 const alertAdded = document.querySelector(".alert-added");
 
-// Create Alert Added
-
-
+// Add to cart //
 addToCart.forEach( itemCart => {
 	itemCart.addEventListener("click" , (e) => {
 		if (e.target.id === "basket") {
@@ -86,16 +88,70 @@ addToCart.forEach( itemCart => {
 					productDeleted.remove();
 					countProductAdded.innerHTML = cartContainer.children.length;
 					countProductCart.innerHTML = cartContainer.children.length;
+					if (cartContainer.children.length == 0) {
+						cartContainer.innerHTML += `
+							<span class="product-notfound">لا يوجد منتجات</span>
+						`
+					};
 				});
 			});
+			
+		};
+		if (e.target.id === "heart") {
+			let myImg = e.target.parentElement.parentElement.previousElementSibling.firstElementChild.src;
+			let productName = e.target.parentElement.parentElement.nextElementSibling.firstElementChild;
+			let productPrice = e.target.parentElement.parentElement.nextElementSibling.lastElementChild.firstElementChild;
+			let Products = {
+				id : e.target.id,
+				myImg : myImg,
+				myName : productName.innerHTML,
+				myPrice : productPrice.innerHTML
+			};
+			favContainer.innerHTML += `
+				<div class="fav-content">
+					<img src="${Products.myImg}">
+					<div class="fav-desc">
+						<h3>${Products.myName}</h3>
+						<div>
+							<span>${Products.myPrice} </span>
+							<button class="remove__product">حذف </button>
+						</div>
+					</div>
+				</div>
+			`
+			alertAdded.style.display = "block";
+			alertAdded.innerHTML = `<span> تم إضافه المنتج الى المفضله</span>`
+			setTimeout(() => {
+				alertAdded.style.display = "none";
+			}, 1000);
+			countProductFav.innerHTML = favContainer.children.length;
+			countProductCart.innerHTML = favContainer.children.length;
+
+			//*************** Remove form cart ***************//
+			const removeProduct = document.querySelectorAll(".remove__product");
+			console.log(removeProduct.length);
+			removeProduct.forEach( itemRemoved => {
+				itemRemoved.addEventListener("click" , (e) => {
+					let productDeleted = e.target.parentElement.parentElement.parentElement;
+					productDeleted.remove();
+					countProductAdded.innerHTML = favContainer.children.length;
+					countProductCart.innerHTML = favContainer.children.length;
+					if (favContainer.children.length == 0) {
+						favContainer.innerHTML += `
+							<span class="product-notfound">لا يوجد منتجات</span>
+						`
+					};
+				});
+			});
+			
 		};
 	});
 });
 
-
+// Open cart //
 openCartBtn.addEventListener("click" , () => {
 	if (cartContainer.children.length  > 0) {
-		cartContent.style.display = "flex";
+		cartContent.style.right = "0%";
 	} else {
 		sweetAlert.style.display = "flex";
 		closeAlert.addEventListener("click" , () => {
@@ -103,7 +159,22 @@ openCartBtn.addEventListener("click" , () => {
 		});
 	};
 });
-closeCartBtn.addEventListener("click" , () => cartContent.style.display = "none");
+closeCartBtn.addEventListener("click" , () => cartContent.style.right = "-100%");
+
+// Open fav //
+if (openFavBtn !== undefined &&  openFavBtn !== null) {
+	openFavBtn.addEventListener("click" , () => {
+	if (favContainer.children.length  > 0) {
+		favContent.style.display = "flex";
+	} else {
+		sweetAlert.style.display = "flex";
+		closeAlert.addEventListener("click" , () => {
+			sweetAlert.style.display = "none";
+		});
+	};
+	});
+	closeCartBtn.addEventListener("click" , () => favContent.style.display = "none");
+}
 
 
 
@@ -112,8 +183,8 @@ var registerOverlay = document.querySelector(".overlay-register__container");
 var registerOverlayClose = document.querySelector(".close_reg-form");
 var registerOverlayOpen = document.querySelector(".dropdown__reg a");
 
-registerOverlayClose.addEventListener( "click", () => (registerOverlay.style.display = "none"));
-registerOverlayOpen.addEventListener( "click", () => (registerOverlay.style.display = "flex") );
+registerOverlayClose.addEventListener( "click", () => registerOverlay.style.display = "none");
+registerOverlayOpen.addEventListener( "click", () => registerOverlay.style.display = "flex");
 
 //***************  Register new member   ***************//
 var registerOverlay = document.querySelector(".overlay-register__container");
@@ -144,12 +215,18 @@ dropdownToggle.addEventListener("click", () => dropdownMenu.classList.toggle("di
 
 //***************  Dropdown 2  ***************//
 let accountOne = document.getElementById("dropdown-btn-one");
+let accountOneRes = document.getElementById("dropdown-btn-one-res");
 let accountTwo = document.getElementById("dropdown-btn-two");
+let accountTwoRes = document.getElementById("dropdown-btn-two-res");
 let dropdownReg = document.getElementById("dropdown__reg");
+let dropdownRegRes = document.getElementById("dropdown__reg-res");
 let dropdownRegTwo = document.getElementById("dropdown__reg-2");
+let dropdownRegTwoRes = document.getElementById("dropdown__reg-2-res");
 
 accountOne.addEventListener("click", () => dropdownReg.classList.toggle("display"));
+accountOneRes.addEventListener("click", () => dropdownRegRes.classList.toggle("display"));
 accountTwo.addEventListener("click", () => dropdownRegTwo.classList.toggle("display"));
+accountTwoRes.addEventListener("click", () => dropdownRegTwoRes.classList.toggle("display"));
 
 //*************** Accordion ***************//
 $(function () {
@@ -185,21 +262,78 @@ $(function () {
 });
 
 //*************** Tabs Toggle ***************//
-// let allTabs = document.getElementById("wrapper");
-// let tabButton = document.querySelectorAll(".tab-button");
-// let contents = document.querySelectorAll(".content");
+let allTabs = document.getElementById("wrapper");
+let tabButton = document.querySelectorAll(".tab-button");
+let contents = document.querySelectorAll(".content");
 
-// allTabs.onclick = function (e) {
-// 	const id = e.target.dataset.id;
-// 	if (id) {
-// 		tabButton.forEach((btn) => {
-// 			btn.classList.remove("active-tabBtn");
-// 		});
-// 		e.target.classList.add("active-tabBtn");
-// 		contents.forEach((content) => {
-// 			content.classList.remove("active-content");
-// 		});
-// 		const element = document.getElementById(id);
-// 		element.classList.add("active-content");
-// 	}
-// };
+if (allTabs !== undefined && allTabs !== null) {
+	allTabs.onclick = function (e) {
+		const id = e.target.dataset.id;
+		if (id) {
+			tabButton.forEach((btn) => {
+				btn.classList.remove("active-tabBtn");
+			});
+			e.target.classList.add("active-tabBtn");
+			contents.forEach((content) => {
+				content.classList.remove("active-content");
+			});
+			const element = document.getElementById(id);
+			element.classList.add("active-content");
+		}
+	};
+};
+
+//*************** ChatBox ***************//
+let messageContentInfo = document.querySelector(".message-content-info");
+if (messageContentInfo !== undefined && messageContentInfo !== null) {
+	messageContentInfo.addEventListener('click', openMessage);
+
+	function openMessage() {
+		let messageBox = document.querySelector(".message-box");
+		let chatBox = document.querySelector(".chat-box");
+		chatBox.style.display = 'flex';
+		messageBox.style.display = 'none';
+	};
+};
+
+//*************    open store    *************//
+let myStoreEdit = document.querySelector(".my-store-edit");
+let myStore = document.querySelector(".my-store");
+let storeAdminBtn = document.getElementById("store-admin");
+let addStoreBtn = document.getElementById("submit-btn-add");
+if (addStoreBtn !== undefined && addStoreBtn !== null) {
+	addStoreBtn.addEventListener('click' , function() {
+		myStoreEdit.style.display = "none";
+		myStore.style.display = "flex";
+	});
+}
+if (storeAdminBtn !== undefined && storeAdminBtn !== null) {
+	storeAdminBtn.addEventListener('click' , function() {
+		myStoreEdit.style.display = "none";
+		myStore.style.display = "flex";
+	});
+};
+
+// Open product-edit
+let storeCategorySections = document.getElementById("store-category-sections");
+let productEditContainer = document.getElementById("product-edit-container");
+let tabContentHeading = document.getElementById("tab-content-heading");
+let addNewProduct = document.getElementById("add-new-product");
+if (addNewProduct !== undefined && addNewProduct !== null) {
+	addNewProduct.addEventListener('click' , function() {
+		storeCategorySections.style.display = "none";
+		tabContentHeading.style.display = "none";
+		productEditContainer.style.display = "flex";
+	});
+};
+
+// Open data contact edit
+let dataContactContainer = document.getElementById("data-contact-container");
+let dataContactEdit = document.getElementById("data-contact-edit");
+let dataBtnEdit = document.getElementById("data-btn-edit");
+if (dataBtnEdit !== undefined && dataBtnEdit !== null) {
+	dataBtnEdit.addEventListener('click' , function() {
+		dataContactContainer.style.display = "none";
+		dataContactEdit.style.display = "flex";
+	});
+};
