@@ -181,10 +181,12 @@ if (openFavBtn !== undefined &&  openFavBtn !== null) {
 //*************** Overlay Register  ***************//
 var registerOverlay = document.querySelector(".overlay-register__container");
 var registerOverlayClose = document.querySelector(".close_reg-form");
-var registerOverlayOpen = document.querySelector(".dropdown__reg a");
+var registerOverlayOpen = document.querySelector(".account-link");
+var registerOverlayOpenRes = document.querySelector(".dropdown__reg-res a");
 
 registerOverlayClose.addEventListener( "click", () => registerOverlay.style.display = "none");
 registerOverlayOpen.addEventListener( "click", () => registerOverlay.style.display = "flex");
+registerOverlayOpenRes.addEventListener( "click", () => registerOverlay.style.display = "flex");
 
 //***************  Register new member   ***************//
 var registerOverlay = document.querySelector(".overlay-register__container");
