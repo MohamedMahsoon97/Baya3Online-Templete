@@ -25,7 +25,7 @@ hideSidebar = () => sideBar.classList.remove('nav__active');
 
 bars.addEventListener('click', () => {
 	showSidebar();
-})
+});
 closeSideBar.addEventListener('click', () => {
 	hideSidebar();
 });
@@ -174,19 +174,16 @@ if (openFavBtn !== undefined &&  openFavBtn !== null) {
 	};
 	});
 	closeCartBtn.addEventListener("click" , () => favContent.style.display = "none");
-}
-
+};
 
 
 //*************** Overlay Register  ***************//
 var registerOverlay = document.querySelector(".overlay-register__container");
 var registerOverlayClose = document.querySelector(".close_reg-form");
 var registerOverlayOpen = document.querySelector(".account-link");
-var registerOverlayOpenRes = document.querySelector(".dropdown__reg-res a");
 
 registerOverlayClose.addEventListener( "click", () => registerOverlay.style.display = "none");
 registerOverlayOpen.addEventListener( "click", () => registerOverlay.style.display = "flex");
-registerOverlayOpenRes.addEventListener( "click", () => registerOverlay.style.display = "flex");
 
 //***************  Register new member   ***************//
 var registerOverlay = document.querySelector(".overlay-register__container");
@@ -204,9 +201,9 @@ registerNewBtn.addEventListener("click", () => {
 	if (myUser.value == "") {
 		alert("UserName Invalid");
 	} else {
-	myUserName.innerHTML = `${myUser.value}`;
-	profileName.innerHTML = `${myUser.value}`;
-	}
+		myUserName.innerHTML = `${myUser.value}`;
+		profileName.innerHTML = `${myUser.value}`;
+	};
 });
 
 
@@ -217,18 +214,12 @@ dropdownToggle.addEventListener("click", () => dropdownMenu.classList.toggle("di
 
 //***************  Dropdown 2  ***************//
 let accountOne = document.getElementById("dropdown-btn-one");
-let accountOneRes = document.getElementById("dropdown-btn-one-res");
 let accountTwo = document.getElementById("dropdown-btn-two");
-let accountTwoRes = document.getElementById("dropdown-btn-two-res");
 let dropdownReg = document.getElementById("dropdown__reg");
-let dropdownRegRes = document.getElementById("dropdown__reg-res");
 let dropdownRegTwo = document.getElementById("dropdown__reg-2");
-let dropdownRegTwoRes = document.getElementById("dropdown__reg-2-res");
 
 accountOne.addEventListener("click", () => dropdownReg.classList.toggle("display"));
-accountOneRes.addEventListener("click", () => dropdownRegRes.classList.toggle("display"));
 accountTwo.addEventListener("click", () => dropdownRegTwo.classList.toggle("display"));
-accountTwoRes.addEventListener("click", () => dropdownRegTwoRes.classList.toggle("display"));
 
 //*************** Accordion ***************//
 $(function () {

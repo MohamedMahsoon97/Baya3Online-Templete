@@ -632,6 +632,7 @@ li {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    direction: ltr;
 }
 .header__account span {
     padding: 0px 10px;
@@ -640,7 +641,7 @@ li {
     transition: all 0.3s ease-in;
 }
 .header__account:hover i {
-    transform: rotate(-90deg);
+    transform: rotate(90deg);
 }
 .dropdown__reg , .dropdown__reg-2{
     background-color: #fff;
@@ -953,7 +954,7 @@ li {
     transform: translate(-50%);
     background-color: var(--first-color);
     color: #fff;
-    width: 80%;
+    width:180px;
     height: 40px;
     line-height: 40px;
     text-align: center;
@@ -1284,7 +1285,7 @@ li {
 .offers__Daily-container .hold__item{
     position: absolute;
     bottom: 160px;
-    opacity: 1;
+    opacity: 0;
 }
 .offers__title {
     position: relative;
@@ -3097,14 +3098,23 @@ footer {
         left: 5px;
         top: 15px;
     }
+    .dropdown-group{
+
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
     .header__content{
         padding: 20px 10px;
     }
     .header__content .row {
         flex-wrap: nowrap;
     }
-    .head-search , .head-categ , .header__navs{
+    .head-search , .head-categ , .navLinks{
         display: none;
+    }
+    .header__navs {
+        background-color: transparent;
     }
     .header__account{
         justify-content: center;
