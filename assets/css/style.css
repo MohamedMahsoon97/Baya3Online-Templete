@@ -639,6 +639,7 @@ li {
 }
 .header__account i {
     transition: all 0.3s ease-in;
+    font-size: var(--normal-font-size);
 }
 .header__account:hover i {
     transform: rotate(90deg);
@@ -3063,6 +3064,7 @@ footer {
         padding: 20px 0px !important;
     }
     .login-html .tab{
+        font-size: 21px;
         margin: 10px 25px !important;
     }
     .register__form{
@@ -3077,6 +3079,9 @@ footer {
 
     /*--  Header  --*/
     .current{display: none;}
+    .header__details{
+        padding: 10px 5px;
+    }
     .header__details-currunt .search-btn-res{
         display: flex;
     }
