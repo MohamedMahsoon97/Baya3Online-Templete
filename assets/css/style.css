@@ -3311,6 +3311,7 @@ footer {
     /*--   Offers   --*/
     .offers__content{width: 100%;}
     .offers__content .hold__item {opacity: 1;}
+    .offer-card .hold__item{opacity: 1 !important;}
     .offers__content ~ .offers__footer h5 {
         top: 280px;
         position: absolute;
